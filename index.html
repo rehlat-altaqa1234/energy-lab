@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>مختبر مُحوِّلات الطاقة | الأشكال المتعددة للطاقة</title>
 <style>
-@font-face{font-family:Almarai;src:url(assets/fonts/almarai.ttf);font-weight:400}
-@font-face{font-family:Almarai;src:url(assets/fonts/almarai-bold.ttf);font-weight:700}
+@font-face{font-family:Almarai;src:url(almarai.ttf);font-weight:400}
+@font-face{font-family:Almarai;src:url(almarai-bold.ttf);font-weight:700}
 :root{--hh:52px;--st:env(safe-area-inset-top,0px);--a:.62;--navy:#1f2a5c;--teal:#14967f;--amber:#f2a516;--rose:#e2557b;--sky:#2f7fd8;--violet:#7b5cd6}
 *{box-sizing:border-box;font-family:Almarai,sans-serif}
 html,body{margin:0;height:100%;overflow:hidden;background:#dfe7f5;color:var(--navy)}
@@ -65,7 +65,7 @@ canvas{width:100%;height:100%;display:block;touch-action:none}
 </style>
 <style>a[href="index.html"]{display:none!important}</style></head>
 <body>
-<header class="hdr"><div class="hr">المملكة العربية السعودية<br>وزارة التعليم</div><img src="assets/img/moe.png" alt="وزارة التعليم"><div class="hl">فيزياء 2 • الدرس <bdi dir="ltr">5-1</bdi><br>المعلمة: <b>أ. ريم الحربي</b></div></header>
+<header class="hdr"><div class="hr">المملكة العربية السعودية<br>وزارة التعليم</div><img src="moe.png" alt="وزارة التعليم"><div class="hl">فيزياء 2 • الدرس <bdi dir="ltr">5-1</bdi><br>المعلمة: <b>أ. ريم الحربي</b></div></header>
 <div class="top">
   <a class="ibtn" href="index.html" title="الرئيسية">🏠</a>
   <h1>🔬 مختبر مُحوِّلات الطاقة</h1>
@@ -84,7 +84,7 @@ canvas{width:100%;height:100%;display:block;touch-action:none}
     <h2 id="exTitle"></h2>
     <div class="row">
       <div class="bubble" id="exBody"></div>
-      <img class="guide" src="assets/img/guide.png" alt="">
+      <img class="guide" src="guide.png" alt="">
     </div>
     <div class="qa" id="qa"><b>🤔 سؤال: </b><span id="qText"></span>
       <div><button class="btn alt reveal" onclick="this.closest('.qa').classList.add('open')">▶ اضغطي لإظهار الإجابة</button></div>
@@ -372,9 +372,9 @@ draw(){const sw=SW,cx=sw/2,cy=H*0.38;const E=this.mg*1e-3*9e16,yrs=E/100/3.156e7
 /* ======================= ENGINE ======================= */
 const tabs=document.getElementById('tabs'),stage=document.getElementById('stage');
 let cur='pe';
-Object.entries(EXPS).forEach(([k,e])=>{const b=document.createElement('button');b.className='tab';b.innerHTML=`<img src="assets/img/${e.img}.jpg" alt=""><span>${e.tab}</span>`;b.dataset.k=k;b.onclick=()=>select(k);tabs.appendChild(b)});
+Object.entries(EXPS).forEach(([k,e])=>{const b=document.createElement('button');b.className='tab';b.innerHTML=`<img src="${e.img}.jpg" alt=""><span>${e.tab}</span>`;b.dataset.k=k;b.onclick=()=>select(k);tabs.appendChild(b)});
 function select(k){cur=k;S=EXPS[k];document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.k===k));
- stage.style.backgroundImage=`url(assets/img/${S.img}.jpg)`;ctrl.innerHTML=S.ctrl?S.ctrl():'';
+ stage.style.backgroundImage=`url(${S.img}.jpg)`;ctrl.innerHTML=S.ctrl?S.ctrl():'';
  document.getElementById('exTitle').textContent=S.title;document.getElementById('exBody').innerHTML=S.explain;document.getElementById('qText').textContent=S.q;document.getElementById('aText').textContent=S.a;document.getElementById('qa').classList.remove('open');
  document.getElementById('badge').textContent=S.title;document.getElementById('hint').textContent='👆 '+S.hint;
  S.init();resize();location.hash=k}
